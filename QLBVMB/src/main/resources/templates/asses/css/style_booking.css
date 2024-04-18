@@ -12,6 +12,7 @@ h1 {
 body {
   font-size: 1.6rem;
   font-family: "Sora", sans-serif;
+  color:#00256C;
 }
 :root {
   --font-heading: "Sora";
@@ -384,6 +385,7 @@ select {
 }
 .calculation__li{
  padding: 5px;
+ display: flex;
 }
 .calculation__pay{
   color: #fff;
@@ -394,4 +396,17 @@ select {
 .calculation__pay:hover{
   opacity: 0.9;
   cursor: pointer;
+}
+.calculation__li_money{
+  padding: 5px;
+  text-align:right;
+
+}
+.btnText {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.btnText:hover {
+  background-color: #265df2;
 }
