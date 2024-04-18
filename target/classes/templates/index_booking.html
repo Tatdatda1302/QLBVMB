@@ -128,7 +128,6 @@
                                   <option disabled selected>Select gender</option>
                                   <option>Male</option>
                                   <option>Female</option>
-                                  <option>Others</option>
                               </select>
                           </div>
                           <div class="input-field">
@@ -145,6 +144,12 @@
                               <select required>
                                   <option disabled selected>Select chair number</option>
                               </select>
+                          </div>
+                          <div class="confirm">
+                            <button class="sumbit">
+                              <span class="btnText">Confirm</span>
+                              <i class="uil uil-navigator"></i>
+                          </button>
                           </div>
                       </div>
                   </div>
@@ -167,11 +172,18 @@
           <div class="calculation__container">
             <h1 class="calculation__heading">Air transportation charge</h1>
             <ul class="container__calculation">
-              <li class="calculation__li">Fare</li>
-              <li class="calculation__li">VND</li>
-              <li class="calculation__li">Discount</li>
-              <li class="calculation__li">VND</li>
-              <li class="calculation__li">Total amount</li>
+              <li class="calculation__li">
+                <div>Fare</dive>
+                  <div>2000000</dive>
+              </li>
+              <li class="calculation__li_money">VND</li>
+              <li class="calculation__li">
+                <div>Fare</dive>
+                  <div>2000000</dive>
+              </li>
+              <li class="calculation__li_money">VND</li>
+              <li class="calculation__li_total">Total amount</li>
+              <li class="calculation__li_money">VND</li>
             </ul>
             <button class="calculation__pay">Pay Now</button>
         </div>
