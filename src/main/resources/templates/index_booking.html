@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="/asses/favicon/Logo_Img.svg"
+      href="/src/main/resources/templates/asses/css/"
       type="VietHub Airline"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,9 +20,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <!-- reset css -->
-    <link rel="stylesheet" href="/asses/css/reset.css" />
+    <link rel="stylesheet" href="/src/main/resources/templates/asses/css/reset.css" />
     <!-- style css -->
-    <link rel="stylesheet" href="/asses/css/style_booking.css" />
+    <link rel="stylesheet" href="/src/main/resources/templates/asses/css/style_booking.css" />
     
     <title>VietHub Airline</title>
   </head>
@@ -32,9 +32,9 @@
     <header class="header">
       <div class="menu">
         <!-- Logo -->
-        <a href="./"
+        <a href=""
           ><img
-            src="/asses/favicon/Logo_Gr.svg"
+            src="/src/main/resources/templates/asses/favicon/Logo_Gr.svg"
             alt="Shine smile"
             class="logo header__logo"
         /></a>
@@ -42,19 +42,19 @@
         <nav class="navbar">
           <ul class="navbar__list" id="navbar__list--pc">
             <li class="navbar__item">
-              <a href="/index_home.html" class="navbar__link">Home</a>
+              <a href="/src/main/resources/templates/index_home.html" class="navbar__link">Home</a>
             </li>
             <li class="navbar__item">
-              <a href="index_search.html" class="navbar__link">Search</a>
+              <a href="/src/main/resources/templatesindex_search.html" class="navbar__link">Search</a>
             </li>
             <li class="navbar__item">
-              <a href="/index_booking.html" class="navbar__link navbar__link--active">Booking</a>
+              <a href="/src/main/resources/templates/index_booking.html" class="navbar__link navbar__link--active">Booking</a>
             </li>
             <li class="navbar__item">
-              <a href="/index_home.html" class="navbar__link">About</a>
+              <a href="/src/main/resources/templates/index_home.html" class="navbar__link">About</a>
             </li>
             <li class="navbar__item">
-              <a href="/index_home.html" class="navbar__link">Contact</a>
+              <a href="/src/main/resources/templates/index_home.html" class="navbar__link">Contact</a>
             </li>
           </ul>
         </nav>
@@ -108,7 +108,7 @@
                           </div>
                           <div class="input-field">
                               <label>ID</label>
-                              <input type="text" placeholder="Enter your name" required>
+                              <input type="text" placeholder="Enter your ID" required>
                           </div>
                           <div class="input-field">
                               <label>Date of Birth</label>
@@ -146,9 +146,8 @@
                               </select>
                           </div>
                           <div class="confirm">
-                            <button class="sumbit">
-                              <span class="btnText">Confirm</span>
-                              <i class="uil uil-navigator"></i>
+                            <button class="btn_confirm">
+                              Confirm
                           </button>
                           </div>
                       </div>
@@ -157,6 +156,16 @@
             </div>
           </div>
 
+          <div class="add-booking">
+            <div class="container">
+                <div class="add-booking__icon">
+                  <img src="/src/main/resources/templates/asses/favicon/phone.svg" width="30" height="24" viewBox="0 0 640 512">
+                </img>
+                  <a class="add__tickets" href="#">Contact info</a>
+                </div>
+            </div>
+
+          </div>
           <div class="add-booking">
             <div class="container">
                 <div class="add-booking__icon">
@@ -173,16 +182,19 @@
             <h1 class="calculation__heading">Air transportation charge</h1>
             <ul class="container__calculation">
               <li class="calculation__li">
-                <div>Fare</dive>
-                  <div>2000000</dive>
+                <div>Fare</div>
+                  <div>2000000</div>
               </li>
               <li class="calculation__li_money">VND</li>
               <li class="calculation__li">
-                <div>Fare</dive>
-                  <div>2000000</dive>
+                <div>Discount</div>
+                  <div>0</div>
               </li>
               <li class="calculation__li_money">VND</li>
-              <li class="calculation__li_total">Total amount</li>
+              <li class="calculation__li">
+                <div class="total">Total amount</div>
+                <div>2000000</div>
+              </li>
               <li class="calculation__li_money">VND</li>
             </ul>
             <button class="calculation__pay">Pay Now</button>
