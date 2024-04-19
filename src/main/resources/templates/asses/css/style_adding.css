@@ -27,7 +27,7 @@
   }
   .container {
     width: 1170px;
-    margin: 0 auto;
+    margin: 100px auto;
     max-width: calc(100% - 48px);
   }
   a {
@@ -135,8 +135,6 @@
   
   
 
-
-
   /* ===== hero ===== */
 .hero__heading {
   color: #FFF;
@@ -172,8 +170,7 @@
   position: relative;
 }
 .hero__content {
-  margin: 130px 320px;
-  width: 57.1%;
+  margin: 250px 480px;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -334,7 +331,7 @@ select {
   border: 2px solid #00256C;
   background: #f6f6f6e8;
 }
-.input: focus{
+.input:focus{
   border: 4px solid #00256C;
 }
 
@@ -360,24 +357,36 @@ select {
     justify-content: space-between;
   }
 .add_station{
-    margin-top: 30px;
     padding: 30px;
     display: flex;
-    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
 }
+.add_planeStation{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
 .inter_title{
-    font-size:30px;
+    font-size:40px;
     text-decoration-thickness:5px;
 }
-.btn_sign{
 
-}
 .btn_add_sign{
-    color: #ffffff;
-    background:#00256C;
-    border-radius:15px;
-    border: 1px solid #00256C;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn_sign:hover .btn_add_sign{
+  opacity: 0.9;
+  cursor: pointer;
+  background-color: var(--header-bg)
 }
 .station_info{
     display: flex;
@@ -385,7 +394,7 @@ select {
     text-align:left;
 }
 .name_station{
-    margin-bottom:25px;
+    margin-bottom:20px;
     font-size:20px;
 }
 .time_station{
@@ -394,8 +403,10 @@ select {
 .note_station{
     color:#00BCD4;
 }
+
+
 .btn_confirm_add{
-    width:150px;
+    width:400px;
     padding: 20px;
     border-radius:10px;
     background: #00256C;
@@ -403,6 +414,7 @@ select {
 }
 .btn_confirm_add:hover{
     opacity: 0.8;
+    cursor: pointer;
 }
 
 .btn_confirm_add:focus{
@@ -422,9 +434,7 @@ select {
     width:50px;
     height:50px;
 }
-.air_plane{
 
-}
 .add_station_title{
     margin-top: 30px;
     padding: 30px;
