@@ -56,12 +56,21 @@ CREATE TABLE CT_HANGVE (
     SoGheDat INT NOT NULL,
     SoGheBan INT NOT NULL,
     SoGHeConLai INT NOT NULL,
+    DonGiaHV FLOAT NOT NULL,
     PRIMARY KEY (MaHangVe, MaChuyenBay),
     FOREIGN KEY (MaHangVe) REFERENCES HANGVE(MaHangVe),
     FOREIGN KEY (MaChuyenBay) REFERENCES CHUYENBAY(MaChuyenBay)
 );
 
-
+CREATE TABLE DSGHE (
+	SoGhe INT NOT NULL,
+    MaMB CHAR(10) NOT NULL,
+    MaHangVe CHAR(10) NOT NULL,
+    GhiChu VARCHAR(255),
+    PRIMARY KEY(SoGhe, MaMB),
+    FOREIGN KEY (MaMB) REFERENCES MAYBAY(MaMB),
+    FOREIGN KEY (MaHangVe) REFERENCES HANGVE(MaHangVe)
+);
 
 CREATE TABLE THAMSO (
 	SoSanBayTGToiDa TINYINT NOT NULL,
@@ -69,15 +78,12 @@ CREATE TABLE THAMSO (
 	TGDungToiThieu TIME NOT NULL,
 	TGDungToiDa TIME NOT NULL,
 	TGDatVeChamNhat TINYINT NOT NULL,
-	TGHuyChamNhat TINYINT NOT NULL,
-    ApDungQDKiemTraConCho TINYINT NOT NULL,
-    ApDungQDKiemTraPhieuDat TINYINT NOT NULL
+	TGHuyChamNhat TINYINT NOT NULL
 );
 
-CREATE TABLE NGUOIDUNG (
-	MaDangNhap CHAR(15) PRIMARY KEY,
-	MatKhau VARCHAR(255) NOT NULL,
-	TenNguoiDung VARCHAR(150) NOT NULL,
+CREATE TABLE HANHKHACH (
+	MaHK CHAR(15) PRIMARY KEY,
+	HoTen VARCHAR(255) NOT NULL,
 	DinhDanh VARCHAR(20),
 	SoDienThoai VARCHAR(15) NOT NULL,
 	Email VARCHAR(255),
@@ -173,10 +179,35 @@ VALUES
     ('SGN', 'CB005', '00:40:00', 'Kiểm tra kỹ thuật');
 
 
-INSERT INTO HANGVE VALUES ('HANG1', 'Hạng 1', 1);
-INSERT INTO HANGVE VALUES ('HANG2', 'Hạng 2', 1.05);
+INSERT INTO HANGVE VALUES ('HANG1', 'Hạng 1', 1.05);
+INSERT INTO HANGVE VALUES ('HANG2', 'Hạng 2', 1);
 
-INSERT INTO CT_HANGVE (MaHangVe, MaChuyenBay, SoLuong, SoGheDat, SoGheBan, SoGheConLai)
+INSERT INTO CT_HANGVE (MaHangVe, MaChuyenBay, SoLuong, SoGheDat, SoGheBan, SoGheConLai, DonGiaHV)
 VALUES
-    ('HANG1', 'CB001', 100, 30, 20, 50),
-    ('HANG2', 'CB001', 50, 10, 15, 25);
+    ('HANG1', 'CB001', 100, 30, 20, 50, 2100),
+    ('HANG2', 'CB001', 50, 10, 15, 25, 2000);
+    
+ 
+DELIMITER $$
+CREATE PROCEDURE InsertSeats()
+BEGIN
+    DECLARE i INT DEFAULT 1;
+    DECLARE j INT DEFAULT 101;
+
+    -- Chèn dữ liệu cho 100 ghế hạng 1
+    WHILE i <= 100 DO
+        INSERT INTO DSGHE (SoGhe, MaMB, MaHangVe, GhiChu)
+        VALUES (i, 'MB001', 'HANG1', '');
+        SET i = i + 1;
+    END WHILE;
+
+    -- Chèn dữ liệu cho 50 ghế hạng 2
+    WHILE j <= 150 DO
+        INSERT INTO DSGHE (SoGhe, MaMB, MaHangVe, GhiChu)
+        VALUES (j, 'MB001', 'HANG2', '');
+        SET j = j + 1;
+    END WHILE;
+END $$
+DELIMITER ;
+
+CALL InsertSeats();
