@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Destination Selection</title>
+<style>
+    .destination-list {
+        display: none;
+        position: absolute;
+        background-color: white;
+        border: 1px solid black;
+        padding: 10px;
+        z-index: 1;
+    }
+</style>
+</head>
+<body>
+
+<section class="fromto__search">
+    <div class="from__search" onclick="showDestinations('from')">
+        <h1 class="abb-name">From</h1>
+        <p class="full-name">Departing from</p>
+    </div>
+    <div class="to__search" onclick="showDestinations('to')">
+        <h1 class="abb-name">To</h1>
+        <p class="full-name">Arriving at</p>
+    </div>
+</section>
+
+<!-- Danh sách điểm du lịch -->
+<div id="fromList" class="destination-list">
+    <a href="#" onclick="selectDestination('from', 'Ha Long Bay')">Ha Long Bay</a>
+    <a href="#" onclick="selectDestination('from', 'Sapa')">Sapa</a>
+    <a href="#" onclick="selectDestination('from', 'Da Nang')">Da Nang</a>
+    <!-- Thêm các điểm du lịch trong nước khác nếu cần -->
+</div>
+<div id="toList" class="destination-list">
+    <a href="#" onclick="selectDestination('to', 'Paris')">Paris</a>
+    <a href="#" onclick="selectDestination('to', 'Tokyo')">Tokyo</a>
+    <a href="#" onclick="selectDestination('to', 'New York')">New York</a>
+    <!-- Thêm các điểm du lịch quốc tế khác nếu cần -->
+</div>
+<!-- Kết thúc danh sách điểm du lịch -->
+
+<script>
+    // Function to show destinations when clicking on "From" or "To"
+    function showDestinations(inputId) {
+        var list = document.getElementById(inputId + 'List');
+        list.style.display = 'block';
+    }
+
+    // Function to select destination and update "From" or "To" field
+    function selectDestination(inputId, destination) {
+        var input = document.querySelector('.' + inputId + '__search .full-name');
+        input.textContent = destination; // Cập nhật nội dung của "From" hoặc "To" thành tên địa điểm được chọn
+        var list = document.getElementById(inputId + 'List');
+        list.style.display = 'none'; // Ẩn danh sách điểm du lịch
+    }
+</script>
+
+</body>
+</html>
