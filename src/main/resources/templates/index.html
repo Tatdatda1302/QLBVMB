@@ -41,29 +41,29 @@
           <nav class="navbar">
             <ul class="navbar__list" id="navbar__list--pc">
               <li class="navbar__item">
-                <a href="/index_home.html" class="navbar__link navbar__link--active">Home</a>
+                <a th:href="@{/index.html}" class="navbar__link navbar__link--active">Home</a>
               </li>
               <li class="navbar__item">
-                <a href="index_search.html" class="navbar__link">Search</a>
+                <a th:href="@{/index_search.html}" class="navbar__link">Search</a>
               </li>
               <li class="navbar__item">
-                <a href="/index_booking.html" class="navbar__link">Booking</a>
+                <a th:href="@{/index_booking.html}" class="navbar__link">Booking</a>
               </li>
               <li class="navbar__item">
-                <a href="/index_home.html" class="navbar__link">About</a>
+                <a th:href="@{/index.html}" class="navbar__link">About</a>
               </li>
               <li class="navbar__item">
-                <a href="/index_home.html" class="navbar__link">Contact</a>
+                <a th:href="@{/index.html}" class="navbar__link">Contact</a>
               </li>
               <li class="navbar__item">
-                <a href="/bookTicket" class="navbar__link">BookTicket</a>
+                <a th:href="@{/bookTicket.html}" class="navbar__link">BookTicket</a>
               </li>
             </ul>
           </nav>
           <!-- cta action -->
           <div class="header__action">
-            <a href="#!" class="header__action--login">Log in</a>
-            <a href="#!" class="btn header__action--signup">Sign up</a>
+            <a th:href="#!" class="header__action--login">Log in</a>
+            <a th:href="#!" class="btn header__action--signup">Sign up</a>
           </div>
         </div>
     </header>
@@ -84,7 +84,7 @@
             Enjoy your trip and receive the personal service you deserve. with world-leading services
           </p>
           <div class="hero__row">
-            <a href="#!" class="btn">Book Online</a>
+            <a th:href="#!" class="btn">Book Online</a>
             <span class="hero__phone">or call (123) 456-789</span>
           </div>
         </div> 
@@ -221,7 +221,7 @@
                 </div>
               </section>
 
-              <a href="#!" class="btn service__btn">all Services</a>
+              <a th:href="#!" class="btn service__btn">all Services</a>
             </div>
           </div>
         </div>
@@ -247,7 +247,7 @@
                 <p class="book-item__desc">
                   Search for flights that suit your preferences and needs.
                 </p>
-                <a href="#!" class="book-item__link">Learn More</a>
+                <a th:href="#!" class="book-item__link">Learn More</a>
               </div>
             </section>
 
@@ -264,7 +264,7 @@
                 <p class="book-item__desc">
                   Check again. Please ensure that the information you provide is completely accurate and valid.
                 </p>
-                <a href="#!" class="book-item__link">Learn More</a>
+                <a th:href="#!" class="book-item__link">Learn More</a>
               </div>
             </section>
 
@@ -279,7 +279,7 @@
                 <p class="book-item__desc">
                   You can pay directly at the counter or pay via bank.
                 </p>
-                <a class="book-item__link" href="#!">Learn More</a>
+                <a class="book-item__link" th:href="#!">Learn More</a>
               </div>
             </section>
           </div>
@@ -501,14 +501,14 @@
                 The application is available on mobile devices. Don't hesitate to download it immediately to make the ticket booking process more convenient.
               </p>
               <div class="install__row">
-                <a href="#1">
+                <a th:href="#1">
                   <img
                     th:src="@{/favicon/Google Play.svg}"
                     alt=""
                     class="install__btn-img"
                   />
                 </a>
-                <a href="#1">
+                <a th:href="#1">
                   <img
                     th:src="@{/favicon/App Store.svg}"
                     alt=""
@@ -530,7 +530,7 @@
               <h2 class="section-heading blog__heading">
                 Read Latest News & Events.
               </h2>
-              <a href="#!" class="blog__link">Read All Blog</a>
+              <a th:href="#!" class="blog__link">Read All Blog</a>
 
               <control class="control blog__control">
                 <!-- previous -->
@@ -585,14 +585,14 @@
                 </figure>
                 <section class="blog-item__body">
                   <h3>
-                    <a href="" class="blog-item__heading"
+                    <a th:href="" class="blog-item__heading"
                       >Are you having difficulty booking tickets?</a
                     >
                   </h3>
                   <p class="blog-item__desc">
                     Don't hesitate to download it immediately to make the ticket booking process convenient.
                   </p>
-                  <a href="#!" class="blog-item__more">Learn More</a>
+                  <a th:href="#!" class="blog-item__more">Learn More</a>
                 </section>
               </article>
 
@@ -607,14 +607,14 @@
                 </figure>
                 <section class="blog-item__body">
                   <h3>
-                    <a href="" class="blog-item__heading"
+                    <a th:href="" class="blog-item__heading"
                       >How to change tickets or upgrade tickets?</a
                     >
                   </h3>
                   <p class="blog-item__desc">
                     Don't hesitate to download it immediately to make the ticket booking process convenient.
                   </p>
-                  <a href="#!" class="blog-item__more">Learn More</a>
+                  <a th:href="#!" class="blog-item__more">Learn More</a>
                 </section>
               </article>
             </div>
@@ -655,16 +655,16 @@
             <h3 class="footer__heading">Company</h3>
             <ul class="footer__list">
               <li class="footer__item">
-                <a href="#!" class="footer__link">About Us</a>
+                <a th:href="#!" class="footer__link">About Us</a>
               </li>
               <li class="footer__item">
-                <a href="#!" class="footer__link">Our Pricing</a>
+                <a th:href="#!" class="footer__link">Our Pricing</a>
               </li>
               <li class="footer__item">
-                <a href="#!" class="footer__link">Latest News</a>
+                <a th:href="#!" class="footer__link">Latest News</a>
               </li>
               <li class="footer__item">
-                <a href="#!" class="footer__link">Contact us</a>
+                <a th:href="#!" class="footer__link">Contact us</a>
               </li>
             </ul>
           </div>
@@ -674,16 +674,16 @@
             <h3 class="footer__heading">Support</h3>
             <ul class="footer__list">
               <li class="footer__item">
-                <a href="#!" class="footer__link">FAQ's</a>
+                <a th:href="#!" class="footer__link">FAQ's</a>
               </li>
               <li class="footer__item">
-                <a href="#!" class="footer__link">Help center</a>
+                <a th:href="#!" class="footer__link">Help center</a>
               </li>
               <li class="footer__item">
-                <a href="#!" class="footer__link">Book tickets</a>
+                <a th:href="#!" class="footer__link">Book tickets</a>
               </li>
               <li class="footer__item">
-                <a href="#!" class="footer__link">Account information</a>
+                <a th:href="#!" class="footer__link">Account information</a>
               </li>
             </ul>
           </div>
@@ -693,13 +693,13 @@
             <h3 class="footer__heading">Terms & Policies</h3>
             <ul class="footer__list">
               <li class="footer__item">
-                <a href="#!" class="footer__link">Privacy Policy</a>
+                <a th:href="#!" class="footer__link">Privacy Policy</a>
               </li>
               <li class="footer__item">
-                <a href="#!" class="footer__link">Terms of Use</a>
+                <a th:href="#!" class="footer__link">Terms of Use</a>
               </li>
               <li class="footer__item">
-                <a href="#!" class="footer__link">Terms of Carriage</a>
+                <a th:href="#!" class="footer__link">Terms of Carriage</a>
               </li>
             </ul>
           </div>

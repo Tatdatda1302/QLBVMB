@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="/src/main/resources/templates/asses/favicon/Logo_Img.svg"
+      th:href="@{/favicon/Logo_Img.svg}"
       type="VietHub Airline"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,9 +20,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <!-- reset css -->
-    <link rel="stylesheet" href="/src/main/resources/templates/asses/css/reset.css" />
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
     <!-- style css -->
-    <link rel="stylesheet" href="/src/main/resources/templates/asses/css/style_search.css" />
+    <link rel="stylesheet" th:href="@{/css/style_search.css}" />
     
     <title>VietHub Airline</title>
   </head>
@@ -32,9 +32,9 @@
     <header class="header">
       <div class="menu">
         <!-- Logo -->
-        <a href="./"
+        <a th:href="@{./}"
           ><img
-            src="/src/main/resources/templates/asses/favicon/Logo_Gr.svg"
+            th:src="@{/favicon/Logo_Gr.svg}"
             alt="Shine smile"
             class="logo header__logo"
         /></a>
@@ -42,26 +42,29 @@
         <nav class="navbar">
           <ul class="navbar__list" id="navbar__list--pc">
             <li class="navbar__item">
-              <a href="/src/main/resources/templates/index.html" class="navbar__link">Home</a>
+              <a th:href="@{/index.html}" class="navbar__link">Home</a>
             </li>
             <li class="navbar__item">
-              <a href="/src/main/resources/templatesindex_search.html" class="navbar__link navbar__link--active">Search</a>
+              <a th:href="@{/index_search.html}" class="navbar__link navbar__link--active">Search</a>
             </li>
             <li class="navbar__item">
-              <a href="/src/main/resources/templates/index_booking.html" class="navbar__link">Booking</a>
+              <a th:href="@{/index_booking.html}" class="navbar__link">Booking</a>
             </li>
             <li class="navbar__item">
-              <a href="/src/main/resources/templates/index.html" class="navbar__link">About</a>
+              <a th:href="@{/index.html}" class="navbar__link">About</a>
             </li>
             <li class="navbar__item">
-              <a href="/src/main/resources/templates/index.html" class="navbar__link">Contact</a>
+              <a th:href="@{/index.html}" class="navbar__link">Contact</a>
+            </li>
+            <li class="navbar__item">
+              <a th:href="@{/index_adding.html}" class="navbar__link">BookTicket</a>
             </li>
           </ul>
         </nav>
         <!-- cta action -->
         <div class="header__action">
-          <a href="#!" class="header__action--login">Log in</a>
-          <a href="#!" class="btn header__action--signup">Sign up</a>
+          <a th:href="@{/index_signin.html}" class="header__action--login">Log in</a>
+          <a th:href="@{/index_signup.html}" class="btn header__action--signup">Sign up</a>
         </div>
       </div>
     </header>
@@ -69,22 +72,21 @@
     <!-- main -->
     <main>
 
-      <!-- hero -->
-      
-
+      <!-- search-->
       <section class="search">
 
+        <!-- hero-->
         <section class="hero">
           <img
             class="hero__img "
-            src="/src/main/resources/templates/asses/img/Plane_Search.svg"
+            th:src="@{/img/Plane_Search.svg}"
             alt="Plane_0"
           />
         </section>
 
+         <!-- container-->
         <div class="container">
           <div class="search__container">
-
             <div class="fromto__search">
                 <div class="from__search" onclick="showDestinations('From')">
                   <div class="name">
@@ -193,6 +195,7 @@
           </div>
         </div>
 
+        <!-- result 1-->
         <section class="result">
           <div class="container">
             <div class="result__container">
@@ -220,7 +223,112 @@
                   <p class="res__code">MH370</p>
                   <p class="res__station">Station: 0</p>
                   <p class="res__details">
-                    <button class="details">Details</button>
+                    <button class="btn__details">Details</button>
+                  </p>
+                </div>
+              </div>
+  
+              <div class="price">
+                <a th:href="@{/index_booking.html}">
+                  <p class="pre price__class">Prestige class</p>
+                  <p class="pre price__vnd">VND 2.500.000</p>
+                  <p class="pre price__number">17/20</p>
+                </a>
+              </div>         
+            </div>
+          </div>
+        </section>
+
+         <!-- itinerary-->
+        <section class="itinerary" style="display: none">
+          <div class="container">
+              <div class="shape">
+                  <!-- itinerary__title -->
+                  <div class="title">
+                      <h1 class="title__heading">Itinerary</h1>
+                      <div class="title__destination">
+                          <h1 class="item__abb">HAN</h1>
+                          <p class="item__full">Ha Noi</p>
+                          <div class="mid-icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="130" height="18" viewBox="0 0 142 24" fill="none">
+                                <path d="M3 21H133L106.869 3" stroke="#00256C" stroke-width="5" stroke-linecap="round"/>
+                              </svg>
+                          </div>
+                          <h1 class="item__abb">HCM</h1>
+                          <p class="item__full">Ho Chi Minh</p>
+                      </div>
+                  </div>
+  
+                  <!-- itinerary__content -->
+                  <div class="content">
+                      <!-- item 1 -->
+                      <div class="item station__1">
+                          <div class="content-icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="54" viewBox="0 0 384 512" fill="#00256C">
+                              <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                          </div>
+                          <div class="content__information">
+                              <h2 class="content__heading">Ha Noi</h2>
+                              <p class="content__desc">T5, 18 th04 2024, 23:10, Viet Nam</p>
+                          </div>
+                      </div>
+                      <!-- item 2 -->
+                      <div class="item station__2">
+                          <div class="content-icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="54" viewBox="0 0 384 512" fill="#00256C">
+                              <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                          </div>
+                          <div class="content__information">
+                              <h2 class="content__heading">Da Nang</h2>
+                              <p class="content__desc">Stop time:  30m, Viet Nam</p>
+                          </div>
+                      </div>
+                      <!-- item 3 -->
+                      <div class="item station__3">
+                          <div class="content-icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="54" viewBox="0 0 384 512" fill="#00256C">
+                              <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                          </div>
+                          <div class="content__information">
+                              <h2 class="content__heading">Ho Chi Minh</h2>
+                              <p class="content__desc">T5, 18 th04 2024, 23:10, Viet Nam</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+  
+          </div>
+        </section>
+
+        <!-- result 2-->
+        <section class="result">
+          <div class="container">
+            <div class="result__container">
+              <div class="information">
+                <div class="fromto__result">
+                    <div class="from__result">
+                      <h1 class="res-time">7:30</h1>
+                      <p class="res-name">HCM</p>
+                    </div>
+
+                    <div class="mid__res">
+                      <p class="res__dura">1h</p>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="130" height="18" viewBox="0 0 142 24" fill="none">
+                        <path d="M3 21H133L106.869 3" stroke="#00256C" stroke-width="5" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+    
+                    <div class="to__result">
+                      <h1 class="res-time">10:30</h1>
+                      <p class="res-name">HNA</p>
+                    </div>
+                </div>
+
+                <div class="code">
+                  <p class="res__code">MH370</p>
+                  <p class="res__station">Station: 0</p>
+                  <p class="res__details">
+                    <button class="btn__details">Details</button>
                   </p>
                 </div>
               </div>
@@ -229,107 +337,16 @@
                 <p class="pre price__class">Prestige class</p>
                 <p class="pre price__vnd">VND 2.500.000</p>
                 <p class="pre price__number">17/20</p>
-              </div>
-  
-            
-  
-              
-  
-              
-                
+              </div>         
             </div>
           </div>
-       </section>
+        </section>
+
       </section>
+
     </main>
 
-
-        
-    
-
-
-
-<script>
-  // Function to show destinations when clicking on "From" or "To"
-  function showDestinations(inputId) {
-      var list = document.getElementById(inputId + 'List');
-      list.style.display = 'block';
-  }
-
-  function selectDestination(inputId, destination) {
-    var inputAbb = document.querySelector('.' + inputId + '__search .abb-name');
-    inputAbb.textContent = destination.toUpperCase(); // Thay đổi nội dung của phần tử "From" thành tên địa điểm viết tắt
-
-    // Chuyển đổi tên địa điểm thành viết tắc
-    var fullName = '';
-    switch (destination) {
-        case 'HNA':
-            fullName = 'Ha Noi';
-            break;
-        case 'VTA':
-            fullName = 'Vung Tau';
-            break;
-        case 'HCM':
-            fullName = 'Ho Chi Minh';
-            break;
-        case 'PAR':
-            fullName = 'Paris';
-            break;
-        case 'TKO':
-            fullName = 'Tokyo';
-            break;
-        case 'NYK':
-            fullName = 'NewYork';
-            break;
-        default:
-            fullName = destination;
-            break;
-    }
-    var inputFullName = document.querySelector('.' + inputId + '__search .full-name');
-    inputFullName.textContent = fullName; // Thay đổi nội dung của phần tử "departing from" thành tên địa điểm viết tắt
-
-    
-
-    var list = document.getElementById(inputId + 'List');
-    list.style.display = 'none'; // Ẩn danh sách điểm du lịch
-}
-
-</script>
-<script>
-  // Lấy danh sách các phần tử "From" và "To"
-var fromElement = document.querySelector('.from__search');
-var toElement = document.querySelector('.to__search');
-
-// Lấy phần tử danh sách điểm du lịch
-var fromList = document.getElementById('fromList');
-var toList = document.getElementById('toList');
-
-// Thêm sự kiện khi rời chuột khỏi phần "From"
-fromElement.addEventListener('mouseleave', function() {
-    fromList.style.display = 'none';
-});
-
-// Thêm sự kiện khi rời chuột khỏi phần "To"
-toElement.addEventListener('mouseleave', function() {
-    toList.style.display = 'none';
-});
-
-// Thêm sự kiện khi nhấp vào phần "From"
-fromElement.addEventListener('click', function() {
-    fromList.style.display = 'block';
-    toList.style.display = 'none'; // Ẩn danh sách "To" khi click vào "From"
-});
-
-// Thêm sự kiện khi nhấp vào phần "To"
-toElement.addEventListener('click', function() {
-    toList.style.display = 'block';
-    fromList.style.display = 'none'; // Ẩn danh sách "From" khi click vào "To"
-});
-
-</script>
-
-
-
+  <script th:src="@{/js/main_search.js}"></script>
 
   </body>
 </html>

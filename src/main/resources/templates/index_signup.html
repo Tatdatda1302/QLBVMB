@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="/asses/favicon/Logo_Img.svg"
+      th:href="@{/favicon/Logo_Img.svg}"
       type="VietHub Airline"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,9 +24,9 @@
     />
 
     <!-- reset css -->
-    <link rel="stylesheet" href="/asses/css/reset.css" />
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
     <!-- style css -->
-    <link rel="stylesheet" href="/asses/css/sign.css" />
+    <link rel="stylesheet" th:href="@{/css/sign.css}" />
 
     <title>VietHub Airline</title>
   </head>
@@ -35,9 +35,9 @@
     <header class="header">
       <div class="menu">
         <!-- Logo -->
-        <a href="./"
+        <a th:href="@{./}"
           ><img
-            src="/asses/favicon/Logo_Gr.svg"
+            th:src="@{/favicon/Logo_Gr.svg}"
             alt="Shine smile"
             class="logo header__logo"
         /></a>
@@ -45,26 +45,26 @@
         <nav class="navbar">
           <ul class="navbar__list" id="navbar__list--pc">
             <li class="navbar__item">
-              <a href="/index_home.html" class="navbar__link">Home</a>
+              <a th:href="@{/index.html}" class="navbar__link">Home</a>
             </li>
             <li class="navbar__item">
-              <a href="index_search.html" class="navbar__link navbar">Search</a>
+              <a th:href="@{index_search.html}" class="navbar__link navbar">Search</a>
             </li>
             <li class="navbar__item">
-              <a href="/index_booking.html" class="navbar__link">Booking</a>
+              <a th:href="@{/index_booking.html}" class="navbar__link">Booking</a>
             </li>
             <li class="navbar__item">
-              <a href="/index_home.html" class="navbar__link">About</a>
+              <a th:href="@{/index.html}" class="navbar__link">About</a>
             </li>
             <li class="navbar__item">
-              <a href="/index_home.html" class="navbar__link">Contact</a>
+              <a th:href="@{/index.html}" class="navbar__link">Contact</a>
             </li>
           </ul>
         </nav>
         <!-- cta action -->
         <div class="header__action">
-            <a href="/index_signin.html" class="header__action--login">Sign in</a>
-            <a href="/index_signup.html" class="btn header__action--signup">Sign up</a>
+            <a th:href="@{/index_signin.html}" class="header__action--login">Sign in</a>
+            <a th:href="@{/index_signup.html}" class="btn header__action--signup">Sign up</a>
           </div>
       </div>
     </header>
@@ -116,7 +116,7 @@
           <div class="form-link">
             <span
               >Don't have an account?
-              <a href="/index_signin.html" class="link signin-link">Sign in</a></span
+              <a th:href="@{/index_signin.html}" class="link signin-link">Sign in</a></span
             >
           </div>
         </div>
