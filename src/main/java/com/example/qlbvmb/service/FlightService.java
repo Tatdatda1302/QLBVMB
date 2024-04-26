@@ -7,7 +7,11 @@ import com.example.qlbvmb.repository.SanBayRepo;
 import com.example.qlbvmb.repository.CTHangVeRepo;
 import com.example.qlbvmb.model.TrungGian;
 import com.example.qlbvmb.repository.TrungGianRepo;
+import com.example.qlbvmb.repository.SoGheRepo;
+import com.example.qlbvmb.repository.MayBayRepo;
 import com.example.qlbvmb.model.SanBay;
+import com.example.qlbvmb.model.DSGhe;
+import com.example.qlbvmb.model.Maybay;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -27,6 +31,12 @@ public class FlightService {
     @Autowired
     TrungGianRepo trunggian_repo;
 
+    @Autowired
+    SoGheRepo soghe_repo;
+
+    @Autowired
+    MayBayRepo maybay_repo;
+
     public Chuyenbay createChuyenbay(Chuyenbay chuyenbay) {
         return flight_repo.save(chuyenbay);
     }
@@ -39,9 +49,29 @@ public class FlightService {
         return trunggian_repo.save(trunggian);
     }
 
+    public DSGhe createDSGhe(DSGhe dsghe) {
+        return soghe_repo.save(dsghe);
+    }
+    
     public boolean isFlightExist(String maChuyenbay) {
         List<Chuyenbay> chuyenbay = flight_repo.findByMaChuyenBay(maChuyenbay);
         return !chuyenbay.isEmpty();
+    }
+
+    public Iterable<Chuyenbay> getAllChuyenbay() {
+        return flight_repo.findAll();
+    }
+
+    public Iterable<Maybay> getAllMaybay() {
+        return maybay_repo.findAll();
+    }
+
+    public Iterable<SanBay> getAllSanbay() {
+        return sanbay_repo.findAll();
+    }
+
+    public Iterable<DSGhe> getGhe(String maMayBay, String maHangVe) {
+        return soghe_repo.findByMaMBAndMaHangVe(maMayBay, maHangVe);
     }
 
     public boolean isSanBayExist(String maSanbay) {
