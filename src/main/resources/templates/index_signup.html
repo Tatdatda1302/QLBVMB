@@ -76,7 +76,12 @@
           <header>Sign up</header>
           <form action="#">
             <div class="field input-field">
-              <input type="text" placeholder="Full name" class="input" />
+              <input
+                type="text"
+                placeholder="Full name"
+                class="input"
+                required
+              />
             </div>
 
             <div class="field input-field">
@@ -85,10 +90,16 @@
                 id="email"
                 placeholder="Email address"
                 class="input"
+                required
               />
             </div>
             <div class="field input-field">
-              <input type="text" placeholder="User ID" class="input" />
+              <input
+                type="text"
+                placeholder="User name"
+                class="input"
+                required
+              />
             </div>
 
             <div class="field input-field">
@@ -96,6 +107,7 @@
                 type="password"
                 placeholder="Create password"
                 class="password"
+                required
               />
             </div>
 
@@ -104,6 +116,7 @@
                 type="password"
                 placeholder="Confirm password"
                 class="password"
+                required
               />
               <i class="bx bx-hide eye-icon"></i>
             </div>
@@ -122,5 +135,6 @@
         </div>
       </div>
     </section>
+    <script src="/asses/js/signup.js"></script>
   </body>
 </html>
