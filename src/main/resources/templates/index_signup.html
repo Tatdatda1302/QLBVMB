@@ -26,7 +26,7 @@
     <!-- reset css -->
     <link rel="stylesheet" th:href="@{/css/reset.css}" />
     <!-- style css -->
-    <link rel="stylesheet" th:href="@{/css/sign.css}" />
+    <link rel="stylesheet" th:href="@{/css/style_sign.css}" />
 
     <title>VietHub Airline</title>
   </head>
@@ -35,17 +35,16 @@
     <header class="header">
       <div class="menu">
         <!-- Logo -->
-        <a th:href="@{./}"
-          ><img
+        <img
             th:src="@{/favicon/Logo_Gr.svg}"
             alt="Shine smile"
             class="logo header__logo"
-        /></a>
+        />
         <!-- Navbar  -->
         <nav class="navbar">
           <ul class="navbar__list" id="navbar__list--pc">
             <li class="navbar__item">
-              <a th:href="@{/index.html}" class="navbar__link">Home</a>
+              <a href="/Wan" class="navbar__link">Home</a>
             </li>
             <li class="navbar__item">
               <a th:href="@{index_search.html}" class="navbar__link navbar">Search</a>
@@ -54,18 +53,18 @@
               <a th:href="@{/index_booking.html}" class="navbar__link">Booking</a>
             </li>
             <li class="navbar__item">
-              <a th:href="@{/index.html}" class="navbar__link">About</a>
+              <a href="/Wan" class="navbar__link">About</a>
             </li>
             <li class="navbar__item">
-              <a th:href="@{/index.html}" class="navbar__link">Contact</a>
+              <a href="/Wan" class="navbar__link">Contact</a>
             </li>
           </ul>
         </nav>
         <!-- cta action -->
         <div class="header__action">
-            <a th:href="@{/index_signin.html}" class="header__action--login">Sign in</a>
-            <a th:href="@{/index_signup.html}" class="btn header__action--signup">Sign up</a>
-          </div>
+            <a href="/Wan/login" class="header__action--login">Sign in</a>
+            <a href="/Wan/signup" class="btn header__action--signup">Sign up</a>
+        </div>
       </div>
     </header>
     <!-- sign up form -->
@@ -74,49 +73,57 @@
       <div class="form Sign up">
         <div class="form-content">
           <header>Sign up</header>
-          <form action="#">
+          <form th:action="@{/signup}" method="POST">
             <div class="field input-field">
-              <input
-                type="text"
-                placeholder="Full name"
-                class="input"
-                required
-              />
+              <input type="text" name="hoTen" placeholder="Full name" class="input" />
+            </div>
+
+            <div class="field input-field">
+              <input type="text" name="dinhDanh" placeholder="User ID" class="input" />
             </div>
 
             <div class="field input-field">
               <input
                 type="text"
-                id="email"
-                placeholder="Email address"
+                name="soDienThoai"
+                placeholder="Phone number"
                 class="input"
-                required
               />
             </div>
+
+            <div class="field input-field">
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="Email address"
+                  class="input"
+                />
+            </div>
+
             <div class="field input-field">
               <input
                 type="text"
-                placeholder="User name"
+                name="userName"
+                placeholder="User Name"
                 class="input"
-                required
               />
             </div>
 
             <div class="field input-field">
               <input
                 type="password"
+                name="passWord1"
                 placeholder="Create password"
                 class="password"
-                required
               />
             </div>
 
             <div class="field input-field">
               <input
                 type="password"
+                name="passWord2"
                 placeholder="Confirm password"
                 class="password"
-                required
               />
               <i class="bx bx-hide eye-icon"></i>
             </div>
@@ -126,15 +133,17 @@
             </div>
           </form>
 
+          <div th:if="${response}" th:text="${response}"></div>
+
           <div class="form-link">
             <span
-              >Don't have an account?
-              <a th:href="@{/index_signin.html}" class="link signin-link">Sign in</a></span
+              >Back to Sign in?
+              <a href="/Wan/login" class="link signin-link">Sign in</a></span
             >
           </div>
         </div>
       </div>
     </section>
-    <script src="/asses/js/signup.js"></script>
+    <script th:src="@{/js/signup.js}"></script>
   </body>
 </html>

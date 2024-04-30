@@ -56,12 +56,21 @@ CREATE TABLE CT_HANGVE (
     SoGheDat INT NOT NULL,
     SoGheBan INT NOT NULL,
     SoGHeConLai INT NOT NULL,
+    DonGiaHV FLOAT NOT NULL,
     PRIMARY KEY (MaHangVe, MaChuyenBay),
     FOREIGN KEY (MaHangVe) REFERENCES HANGVE(MaHangVe),
     FOREIGN KEY (MaChuyenBay) REFERENCES CHUYENBAY(MaChuyenBay)
 );
 
-
+CREATE TABLE DSGHE (
+	SoGhe INT NOT NULL,
+    MaMB CHAR(10) NOT NULL,
+    MaHangVe CHAR(10) NOT NULL,
+    GhiChu VARCHAR(255),
+    PRIMARY KEY(SoGhe, MaMB),
+    FOREIGN KEY (MaMB) REFERENCES MAYBAY(MaMB),
+    FOREIGN KEY (MaHangVe) REFERENCES HANGVE(MaHangVe)
+);
 
 CREATE TABLE THAMSO (
 	SoSanBayTGToiDa TINYINT NOT NULL,
@@ -69,19 +78,22 @@ CREATE TABLE THAMSO (
 	TGDungToiThieu TIME NOT NULL,
 	TGDungToiDa TIME NOT NULL,
 	TGDatVeChamNhat TINYINT NOT NULL,
-	TGHuyChamNhat TINYINT NOT NULL,
-    ApDungQDKiemTraConCho TINYINT NOT NULL,
-    ApDungQDKiemTraPhieuDat TINYINT NOT NULL
+	TGHuyChamNhat TINYINT NOT NULL
 );
 
-CREATE TABLE NGUOIDUNG (
-	MaDangNhap CHAR(15) PRIMARY KEY,
-	MatKhau VARCHAR(255) NOT NULL,
-	TenNguoiDung VARCHAR(150) NOT NULL,
+CREATE TABLE HANHKHACH (
+	MaHK SERIAL PRIMARY KEY,
+	HoTen VARCHAR(150) NOT NULL,
 	DinhDanh VARCHAR(20),
 	SoDienThoai VARCHAR(15) NOT NULL,
-	Email VARCHAR(255),
-	NgaySinh DATETIME NOT NULL
+	Email VARCHAR(255)
+);
+
+CREATE TABLE CUSTOMER (
+	id SERIAL PRIMARY KEY,
+	username VARCHAR(50) NOT NULL,
+    password VARCHAR(500) NOT NULL, 
+    role VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE CT_DATVE (
@@ -173,10 +185,41 @@ VALUES
     ('SGN', 'CB005', '00:40:00', 'Kiểm tra kỹ thuật');
 
 
-INSERT INTO HANGVE VALUES ('HANG1', 'Hạng 1', 1);
-INSERT INTO HANGVE VALUES ('HANG2', 'Hạng 2', 1.05);
+INSERT INTO HANGVE VALUES ('HANG1', 'Hạng 1', 1.05);
+INSERT INTO HANGVE VALUES ('HANG2', 'Hạng 2', 1);
 
-INSERT INTO CT_HANGVE (MaHangVe, MaChuyenBay, SoLuong, SoGheDat, SoGheBan, SoGheConLai)
+INSERT INTO CT_HANGVE (MaHangVe, MaChuyenBay, SoLuong, SoGheDat, SoGheBan, SoGheConLai, DonGiaHV)
 VALUES
-    ('HANG1', 'CB001', 100, 30, 20, 50),
-    ('HANG2', 'CB001', 50, 10, 15, 25);
+    ('HANG1', 'CB001', 100, 30, 20, 50, 2100),
+    ('HANG2', 'CB001', 50, 10, 15, 25, 2000);
+    
+ 
+DELIMITER $$
+CREATE PROCEDURE InsertSeats()
+BEGIN
+    DECLARE i INT DEFAULT 1;
+    DECLARE j INT DEFAULT 101;
+
+    -- Chèn dữ liệu cho 100 ghế hạng 1
+    WHILE i <= 100 DO
+        INSERT INTO DSGHE (SoGhe, MaMB, MaHangVe, GhiChu)
+        VALUES (i, 'MB001', 'HANG1', '');
+        SET i = i + 1;
+    END WHILE;
+
+    -- Chèn dữ liệu cho 50 ghế hạng 2
+    WHILE j <= 150 DO
+        INSERT INTO DSGHE (SoGhe, MaMB, MaHangVe, GhiChu)
+        VALUES (j, 'MB001', 'HANG2', '');
+        SET j = j + 1;
+    END WHILE;
+END $$
+DELIMITER ;
+
+CALL InsertSeats();
+
+INSERT INTO CUSTOMER (id, username, password, role) VALUES
+('1', 'Wan', '$2a$10$AvHuhg4AQ0gdBkV6f2reKOZ5DaWpLaTGhGA/mbuN6n6iT3jfjbFX.', 'ADMIN'),
+('2', 'Quang', '$2a$10$GR8GkTL59Fs2JWE./hkCrePr8a9hbhpvqd7twv8iv0NeKnk3isb3e', 'STAFF'),
+('3', 'Lien', '$2a$10$fykIaPKe/AV05kZtjN3iJO0H4QztTJ0sXhTc.LRbPrUaQoao.hRUi', 'STAFF'),
+('4', 'Jeo', '$2a$10$8xx1lp.2Eacb1N4Zo9MmhOxG8TBGDBxD6csRRISRkNKKtwoukzOvC', 'USER');

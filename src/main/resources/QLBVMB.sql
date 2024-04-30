@@ -82,12 +82,18 @@ CREATE TABLE THAMSO (
 );
 
 CREATE TABLE HANHKHACH (
-	MaHK CHAR(15) PRIMARY KEY,
-	HoTen VARCHAR(255) NOT NULL,
+	MaHK SERIAL PRIMARY KEY,
+	HoTen VARCHAR(150) NOT NULL,
 	DinhDanh VARCHAR(20),
 	SoDienThoai VARCHAR(15) NOT NULL,
-	Email VARCHAR(255),
-	NgaySinh DATETIME NOT NULL
+	Email VARCHAR(255)
+);
+
+CREATE TABLE CUSTOMER (
+	id SERIAL PRIMARY KEY,
+	username VARCHAR(50) NOT NULL,
+    password VARCHAR(500) NOT NULL, 
+    role VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE CT_DATVE (
@@ -211,3 +217,9 @@ END $$
 DELIMITER ;
 
 CALL InsertSeats();
+
+INSERT INTO CUSTOMER (id, username, password, role) VALUES
+('1', 'Wan', '$2a$10$AvHuhg4AQ0gdBkV6f2reKOZ5DaWpLaTGhGA/mbuN6n6iT3jfjbFX.', 'ADMIN'),
+('2', 'Quang', '$2a$10$GR8GkTL59Fs2JWE./hkCrePr8a9hbhpvqd7twv8iv0NeKnk3isb3e', 'STAFF'),
+('3', 'Lien', '$2a$10$fykIaPKe/AV05kZtjN3iJO0H4QztTJ0sXhTc.LRbPrUaQoao.hRUi', 'STAFF'),
+('4', 'Jeo', '$2a$10$8xx1lp.2Eacb1N4Zo9MmhOxG8TBGDBxD6csRRISRkNKKtwoukzOvC', 'USER');

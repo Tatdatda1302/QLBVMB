@@ -144,6 +144,14 @@
   line-height: 1.14;
   letter-spacing: -1.4px;
 }
+.response__heading {
+  color: #FFF;
+  text-align: center;
+  font-size: 7rem; /* Adjust as needed */
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -1.4px;
+}
 .hero__desc {
   margin-top: 30px;
   color: #c9d2da;
@@ -177,6 +185,17 @@
   justify-content: center; 
   align-items: center;
   text-align: center; 
+}
+.response__content { 
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .hero__img {
   min-width: 100vw;

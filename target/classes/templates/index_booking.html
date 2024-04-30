@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="/src/main/resources/templates/asses/favicon/Logo_Img.svg"
+      th:href="@{/favicon/Logo_Img.svg}"
       type="VietHub Airline"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,9 +20,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <!-- reset css -->
-    <link rel="stylesheet" href="/src/main/resources/templates/asses/css/reset.css" />
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
     <!-- style css -->
-    <link rel="stylesheet" href="/src/main/resources/templates/asses/css/style_booking.css" />
+    <link rel="stylesheet" th:href="@{/css/style_booking.css}" />
     
     <title>VietHub Airline</title>
   </head>
@@ -32,9 +32,9 @@
     <header class="header">
       <div class="menu">
         <!-- Logo -->
-        <a href=""
+        <a th:href="@{#}"
           ><img
-            src="/src/main/resources/templates/asses/favicon/Logo_Gr.svg"
+            th:src="/favicon/Logo_Gr.svg"
             alt="Shine smile"
             class="logo header__logo"
         /></a>
@@ -42,26 +42,26 @@
         <nav class="navbar">
           <ul class="navbar__list" id="navbar__list--pc">
             <li class="navbar__item">
-              <a href="/src/main/resources/templates/index.html" class="navbar__link">Home</a>
+              <a th:href="@{/index.html}" class="navbar__link">Home</a>
             </li>
             <li class="navbar__item">
-              <a href="/src/main/resources/templates/index_search.html" class="navbar__link">Search</a>
+              <a th:href="@{/index_search.html}" class="navbar__link">Search</a>
             </li>
             <li class="navbar__item">
-              <a href="/src/main/resources/templates/index_booking.html" class="navbar__link navbar__link--active">Booking</a>
+              <a th:href="@{/index_booking.html}" class="navbar__link navbar__link--active">Booking</a>
             </li>
             <li class="navbar__item">
-              <a href="/src/main/resources/templates/index.html" class="navbar__link">About</a>
+              <a th:href="@{/index.html}" class="navbar__link">About</a>
             </li>
             <li class="navbar__item">
-              <a href="/src/main/resources/templates/index.html" class="navbar__link">Contact</a>
+              <a th:href="@{/index.html}" class="navbar__link">Contact</a>
             </li>
           </ul>
         </nav>
         <!-- cta action -->
         <div class="header__action">
-          <a href="#!" class="header__action--login">Log in</a>
-          <a href="#!" class="btn header__action--signup">Sign up</a>
+          <a th:href="@{#!}" class="header__action--login">Log in</a>
+          <a th:href="@{#!}" class="btn header__action--signup">Sign up</a>
         </div>
       </div>
     </header>
@@ -159,9 +159,9 @@
           <div class="add-booking">
             <div class="container">
                 <div class="add-booking__icon">
-                  <img src="/src/main/resources/templates/asses/favicon/phone.svg" width="30" height="24" viewBox="0 0 640 512">
+                  <img th:src="/favicon/phone.svg" width="30" height="24" viewBox="0 0 640 512">
                 </img>
-                  <a class="add__tickets" href="#">Contact info</a>
+                  <a class="add__tickets" th:href="@{#!}">Contact info</a>
                 </div>
             </div>
 
@@ -171,7 +171,7 @@
                 <div class="add-booking__icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 640 512">
                   <path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" fill="#00256C"/></svg>
-                  <a class="add__tickets" href="#">Add tickets</a>
+                  <a class="add__tickets" th:href="@{#!}">Add tickets</a>
                 </div>
             </div>
           </div>

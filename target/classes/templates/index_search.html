@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="/src/main/resources/templates/asses/favicon/Logo_Img.svg"
+      th:href="@{/favicon/Logo_Img.svg}"
       type="VietHub Airline"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,9 +20,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <!-- reset css -->
-    <link rel="stylesheet" href="/src/main/resources/templates/asses/css/reset.css" />
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
     <!-- style css -->
-    <link rel="stylesheet" href="/src/main/resources/templates/asses/css/style_search.css" />
+    <link rel="stylesheet" th:href="@{/css/style_search.css}" />
     
     <title>VietHub Airline</title>
   </head>
@@ -32,9 +32,9 @@
     <header class="header">
       <div class="menu">
         <!-- Logo -->
-        <a href="./"
+        <a th:href="@{./}"
           ><img
-            src="/src/main/resources/templates/asses/favicon/Logo_Gr.svg"
+            th:src="@{/favicon/Logo_Gr.svg}"
             alt="Shine smile"
             class="logo header__logo"
         /></a>
@@ -42,26 +42,29 @@
         <nav class="navbar">
           <ul class="navbar__list" id="navbar__list--pc">
             <li class="navbar__item">
-              <a href="/src/main/resources/templates/index.html" class="navbar__link">Home</a>
+              <a th:href="@{/index.html}" class="navbar__link">Home</a>
             </li>
             <li class="navbar__item">
-              <a href="/src/main/resources/templatesindex_search.html" class="navbar__link navbar__link--active">Search</a>
+              <a th:href="@{/index_search.html}" class="navbar__link navbar__link--active">Search</a>
             </li>
             <li class="navbar__item">
-              <a href="/src/main/resources/templates/index_booking.html" class="navbar__link">Booking</a>
+              <a th:href="@{/index_booking.html}" class="navbar__link">Booking</a>
             </li>
             <li class="navbar__item">
-              <a href="/src/main/resources/templates/index.html" class="navbar__link">About</a>
+              <a th:href="@{/index.html}" class="navbar__link">About</a>
             </li>
             <li class="navbar__item">
-              <a href="/src/main/resources/templates/index.html" class="navbar__link">Contact</a>
+              <a th:href="@{/index.html}" class="navbar__link">Contact</a>
+            </li>
+            <li class="navbar__item">
+              <a th:href="@{/index_adding.html}" class="navbar__link">BookTicket</a>
             </li>
           </ul>
         </nav>
         <!-- cta action -->
         <div class="header__action">
-          <a href="#!" class="header__action--login">Log in</a>
-          <a href="#!" class="btn header__action--signup">Sign up</a>
+          <a th:href="@{/index_signin.html}" class="header__action--login">Log in</a>
+          <a th:href="@{/index_signup.html}" class="btn header__action--signup">Sign up</a>
         </div>
       </div>
     </header>
@@ -69,30 +72,281 @@
     <!-- main -->
     <main>
 
-      <!-- hero -->
-      <section class="hero">
-        <img
-          class="hero__img "
-          src="/src/main/resources/templates/asses/img/Plane_Search.svg"
-          alt="Plane_0"
-        />
-        <div class="hero__content">
-          <h1 class="hero__heading">Có làm gì đâu mà xem</h1>
-          <p class="hero__desc">
-            Enjoy your trip and receive the personal service you deserve. with world-leading services
-          </p>
-          <div class="hero__row">
-            <a href="#!" class="btn">Book Online</a>
-            <span class="hero__phone">or call (123) 456-789</span>
+      <!-- search-->
+      <section class="search">
+
+        <!-- hero-->
+        <section class="hero">
+          <img
+            class="hero__img "
+            th:src="@{/img/Plane_Search.svg}"
+            alt="Plane_0"
+          />
+        </section>
+
+         <!-- container-->
+        <div class="container">
+          <div class="search__container">
+            <div class="fromto__search">
+                <div class="from__search" onclick="showDestinations('From')">
+                  <div class="name">
+                    <h1 class="abb-name">From</h1>
+                    <p class="full-name">Departing from</p>
+                  </div>
+
+                    <!-- Danh sách điểm du lịch -->
+                    <div id="fromList" class="destination-list">
+                      <ul class="domestic">
+                        <li class="domestic__li">Domestic</li>
+                        <li class="li" onclick="selectDestination('from', 'HNA')">Ha Noi</li>
+                        <li class="li" onclick="selectDestination('from', 'VTA')">Vung Tau</li>
+                        <li class="li" onclick="selectDestination('from', 'HCM')">Ho CHi Minh</li>
+                      </ul>
+
+                      <ul class="international">
+                        <li class="international__li">International</li>
+                        <li class="li" onclick="selectDestination('from', 'PAR')">Paris</li>
+                        <li class="li" onclick="selectDestination('from', 'TKO')">Tokyo</li>
+                        <li class="li" onclick="selectDestination('from', 'NYK')">New York</li>
+                      </ul>
+                    </div>
+                    
+
+                </div>
+
+                <div class="search__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 512 512" fill="#00256C">
+                  <path d="M105.1 202.6c7.7-21.8 20.2-42.3 37.8-59.8c62.5-62.5 163.8-62.5 226.3 0L386.3 160H352c-17.7 0-32 14.3-32 32s14.3 32 32 32H463.5c0 0 0 0 0 0h.4c17.7 0 32-14.3 32-32V80c0-17.7-14.3-32-32-32s-32 14.3-32 32v35.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0C73.2 122 55.6 150.7 44.8 181.4c-5.9 16.7 2.9 34.9 19.5 40.8s34.9-2.9 40.8-19.5zM39 289.3c-5 1.5-9.8 4.2-13.7 8.2c-4 4-6.7 8.8-8.1 14c-.3 1.2-.6 2.5-.8 3.8c-.3 1.7-.4 3.4-.4 5.1V432c0 17.7 14.3 32 32 32s32-14.3 32-32V396.9l17.6 17.5 0 0c87.5 87.4 229.3 87.4 316.7 0c24.4-24.4 42.1-53.1 52.9-83.7c5.9-16.7-2.9-34.9-19.5-40.8s-34.9 2.9-40.8 19.5c-7.7 21.8-20.2 42.3-37.8 59.8c-62.5 62.5-163.8 62.5-226.3 0l-.1-.1L125.6 352H160c17.7 0 32-14.3 32-32s-14.3-32-32-32H48.4c-1.6 0-3.2 .1-4.8 .3s-3.1 .5-4.6 1z"/></svg>
+                </div>
+
+                <div class="to__search" onclick="showDestinations('To')">
+                  <h1 class="abb-name">To</h1>
+                  <p class="full-name">Arriving at</p>
+
+                  <div id="toList" class="destination-list">
+                    <ul class="domestic">
+                      <li class="domestic__li">Domestic</li>
+                      <li class="li" onclick="selectDestination('to', 'HNA')">Ha Noi</li>
+                      <li class="li" onclick="selectDestination('to', 'VTA')">Vung Tau</li>
+                      <li class="li" onclick="selectDestination('to', 'HCM')">Ho CHi Minh</li>
+                    </ul>
+
+                    <ul class="international">
+                      <li class="international__li">International</li>
+                      <li class="li" onclick="selectDestination('to', 'PAR')">Paris</li>
+                      <li class="li" onclick="selectDestination('to', 'TKO')">Tokyo</li>
+                      <li class="li" onclick="selectDestination('to', 'NYK')">New York</li>
+                    </ul>
+                    </ul>
+                  </div>
+
+                </div>
+            </div>
+
+            <div class="search__stop">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1" height="64" viewBox="0 0 1 64" fill="none">
+              <path d="M0.5 0L0.500003 64" stroke="black"/>
+              </svg>
+            </div>
+
+            <div class="calendar__search">
+              <div class="search__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="56" viewBox="0 0 448 512" fill="#00256C">
+                <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"/></svg>
+                </svg>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" for="DepartureDate">Departure Date</label>
+                <input class="form-input" type="date" id="DepartureDate" name="DepartureDate" placeholder="Departure Date">
+                <span class="form-message"></span>
+            </div>
+
+            </div>
+
+            <div class="search__stop">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1" height="64" viewBox="0 0 1 64" fill="none">
+              <path d="M0.5 0L0.500003 64" stroke="black"/>
+              </svg>
+            </div>
+
+            <div class="seat__search">
+              <div class="search__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="56" viewBox="0 0 448 512" fill="#00256C">
+                <path d="M248 48V256h48V58.7c23.9 13.8 40 39.7 40 69.3V256h48V128C384 57.3 326.7 0 256 0H192C121.3 0 64 57.3 64 128V256h48V128c0-29.6 16.1-55.5 40-69.3V256h48V48h48zM48 288c-12.1 0-23.2 6.8-28.6 17.7l-16 32c-5 9.9-4.4 21.7 1.4 31.1S20.9 384 32 384l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32V384H352v96c0 17.7 14.3 32 32 32s32-14.3 32-32V384c11.1 0 21.4-5.7 27.2-15.2s6.4-21.2 1.4-31.1l-16-32C423.2 294.8 412.1 288 400 288H48z"/></svg>
+                </svg>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="Seat">Cabin Class</label>
+                <select class="form-input" id="Seat" name="Seat">
+                    <option disabled selected>Select cabin class</option>
+                    <option value="class1">Prestige</option>
+                    <option value="class2">Economy</option>
+                </select>
+                <span class="form-message"></span>
+              </div>
+            </div>
+
+            <div class="search__button">
+              <button class="btn__search">Search</button>
+            </div>
+              
           </div>
-        </div> 
+        </div>
+
+        <!-- result 1-->
+        <section class="result">
+          <div class="container">
+            <div class="result__container">
+              <div class="information">
+                <div class="fromto__result">
+                    <div class="from__result">
+                      <h1 class="res-time">7:30</h1>
+                      <p class="res-name">HCM</p>
+                    </div>
+
+                    <div class="mid__res">
+                      <p class="res__dura">1h</p>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="130" height="18" viewBox="0 0 142 24" fill="none">
+                        <path d="M3 21H133L106.869 3" stroke="#00256C" stroke-width="5" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+    
+                    <div class="to__result">
+                      <h1 class="res-time">10:30</h1>
+                      <p class="res-name">HNA</p>
+                    </div>
+                </div>
+
+                <div class="code">
+                  <p class="res__code">MH370</p>
+                  <p class="res__station">Station: 0</p>
+                  <p class="res__details">
+                    <button class="btn__details">Details</button>
+                  </p>
+                </div>
+              </div>
+  
+              <div class="price">
+                <a th:href="@{/index_booking.html}">
+                  <p class="pre price__class">Prestige class</p>
+                  <p class="pre price__vnd">VND 2.500.000</p>
+                  <p class="pre price__number">17/20</p>
+                </a>
+              </div>         
+            </div>
+          </div>
+        </section>
+
+         <!-- itinerary-->
+        <section class="itinerary" style="display: none">
+          <div class="container">
+              <div class="shape">
+                  <!-- itinerary__title -->
+                  <div class="title">
+                      <h1 class="title__heading">Itinerary</h1>
+                      <div class="title__destination">
+                          <h1 class="item__abb">HAN</h1>
+                          <p class="item__full">Ha Noi</p>
+                          <div class="mid-icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="130" height="18" viewBox="0 0 142 24" fill="none">
+                                <path d="M3 21H133L106.869 3" stroke="#00256C" stroke-width="5" stroke-linecap="round"/>
+                              </svg>
+                          </div>
+                          <h1 class="item__abb">HCM</h1>
+                          <p class="item__full">Ho Chi Minh</p>
+                      </div>
+                  </div>
+  
+                  <!-- itinerary__content -->
+                  <div class="content">
+                      <!-- item 1 -->
+                      <div class="item station__1">
+                          <div class="content-icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="54" viewBox="0 0 384 512" fill="#00256C">
+                              <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                          </div>
+                          <div class="content__information">
+                              <h2 class="content__heading">Ha Noi</h2>
+                              <p class="content__desc">T5, 18 th04 2024, 23:10, Viet Nam</p>
+                          </div>
+                      </div>
+                      <!-- item 2 -->
+                      <div class="item station__2">
+                          <div class="content-icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="54" viewBox="0 0 384 512" fill="#00256C">
+                              <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                          </div>
+                          <div class="content__information">
+                              <h2 class="content__heading">Da Nang</h2>
+                              <p class="content__desc">Stop time:  30m, Viet Nam</p>
+                          </div>
+                      </div>
+                      <!-- item 3 -->
+                      <div class="item station__3">
+                          <div class="content-icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="54" viewBox="0 0 384 512" fill="#00256C">
+                              <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                          </div>
+                          <div class="content__information">
+                              <h2 class="content__heading">Ho Chi Minh</h2>
+                              <p class="content__desc">T5, 18 th04 2024, 23:10, Viet Nam</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+  
+          </div>
+        </section>
+
+        <!-- result 2-->
+        <section class="result">
+          <div class="container">
+            <div class="result__container">
+              <div class="information">
+                <div class="fromto__result">
+                    <div class="from__result">
+                      <h1 class="res-time">7:30</h1>
+                      <p class="res-name">HCM</p>
+                    </div>
+
+                    <div class="mid__res">
+                      <p class="res__dura">1h</p>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="130" height="18" viewBox="0 0 142 24" fill="none">
+                        <path d="M3 21H133L106.869 3" stroke="#00256C" stroke-width="5" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+    
+                    <div class="to__result">
+                      <h1 class="res-time">10:30</h1>
+                      <p class="res-name">HNA</p>
+                    </div>
+                </div>
+
+                <div class="code">
+                  <p class="res__code">MH370</p>
+                  <p class="res__station">Station: 0</p>
+                  <p class="res__details">
+                    <button class="btn__details">Details</button>
+                  </p>
+                </div>
+              </div>
+  
+              <div class="price">
+                <p class="pre price__class">Prestige class</p>
+                <p class="pre price__vnd">VND 2.500.000</p>
+                <p class="pre price__number">17/20</p>
+              </div>         
+            </div>
+          </div>
+        </section>
+
       </section>
 
     </main>
 
-    
-
-
+  <script th:src="@{/js/main_search.js}"></script>
 
   </body>
 </html>

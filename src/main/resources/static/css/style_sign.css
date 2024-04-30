@@ -7,7 +7,7 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Sora", sans-serif;
-  background-image: url(/asses/img/sign.jpg);
+  background-image: url("../img/sign.jpg");
 }
 :root {
   --font-heading: "Sora";

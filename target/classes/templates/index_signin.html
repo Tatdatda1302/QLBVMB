@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="/asses/favicon/Logo_Img.svg"
+      th:href="@{/favicon/Logo_Img.svg}"
       type="VietHub Airline"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,9 +24,9 @@
     />
 
     <!-- reset css -->
-    <link rel="stylesheet" href="/asses/css/reset.css" />
+    <link rel="stylesheet" th:href="@{/css/reset.css}" />
     <!-- style css -->
-    <link rel="stylesheet" href="/asses/css/sign.css" />
+    <link rel="stylesheet" th:href="@{/css/style_sign.css}" />
 
     <title>VietHub Airline</title>
   </head>
@@ -35,17 +35,16 @@
     <header class="header">
       <div class="menu">
         <!-- Logo -->
-        <a href="./"
-          ><img
-            src="/asses/favicon/Logo_Gr.svg"
+        <img
+            th:src="@{/favicon/Logo_Gr.svg}"
             alt="Shine smile"
             class="logo header__logo"
-        /></a>
+        />
         <!-- Navbar  -->
         <nav class="navbar">
           <ul class="navbar__list" id="navbar__list--pc">
             <li class="navbar__item">
-              <a href="/index_home.html" class="navbar__link">Home</a>
+              <a href="/Wan" class="navbar__link">Home</a>
             </li>
             <li class="navbar__item">
               <a href="index_search.html" class="navbar__link navbar">Search</a>
@@ -54,19 +53,17 @@
               <a href="/index_booking.html" class="navbar__link">Booking</a>
             </li>
             <li class="navbar__item">
-              <a href="/index_home.html" class="navbar__link">About</a>
+              <a href="/Wan" class="navbar__link">About</a>
             </li>
             <li class="navbar__item">
-              <a href="/index_home.html" class="navbar__link">Contact</a>
+              <a href="/Wan" class="navbar__link">Contact</a>
             </li>
           </ul>
         </nav>
         <!-- cta action -->
         <div class="header__action">
-          <a href="/index_signin.html" class="header__action--login">Sign in</a>
-          <a href="/index_signup.html" class="btn header__action--signup"
-            >Sign up</a
-          >
+          <a href="/Wan/login" class="header__action--login">Sign in</a>
+          <a href="/Wan/signup" class="btn header__action--signup">Sign up</a>
         </div>
       </div>
     </header>
@@ -77,34 +74,34 @@
       <div class="form Sign in">
         <div class="form-content">
           <header>Sign in</header>
-          <form action="#">
+          <form action="/Wan/login" method="POST">
             <div class="field input-field">
               <input
                 type="text"
-                id="email"
-                placeholder="User ID"
+                name="userName"
+                placeholder="User Name"
                 class="input"
               />
             </div>
-
+          
             <div class="field input-field">
-              <input type="password" placeholder="Password" class="password" />
+              <input type="password" name="passWord" placeholder="Password" class="password" />
               <i class="bx bx-hide eye-icon"></i>
             </div>
-
+          
             <div class="form-link">
-              <a href="#" class="forgot-pass">Forgot password?</a>
+              <a href="/Wan/password" class="forgot-pass">Forgot password?</a>
             </div>
-
+          
             <div class="field button-field">
-              <button>Sign in</button>
+              <button type="submit">Sign in</button>
             </div>
           </form>
 
           <div class="form-link">
             <span
               >Don't have an account?
-              <a href="/index_signup.html" class="link signup-link"
+              <a href="/Wan/signup" class="link signup-link"
                 >Sign up</a
               ></span
             >
@@ -112,5 +109,6 @@
         </div>
       </div>
     </section>
+    <script th:src="@{/js/signin.js}"></script>
   </body>
 </html>
