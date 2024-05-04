@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Sora", sans-serif;
+}
+
+:root {
+  --font-heading: "Sora";
+  --font-content: "Open Sans";
+  --primary-color: #21A9DE;
+  --header-bg: #00256C;
+  --partners-bg: #F6FBFF;
+}
+
+
+/* ========== common ========== */
+
+
+/* se co nhung the khong an theo thuoc tinh chung */
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.container {
+  width: 1170px;
+  margin: 0 auto;
+  max-width: calc(100% - 48px);
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  /* box chua */
+  display: inline-block;
+  min-width: 205px;
+  line-height: 60px;
+  border-radius: 30px;
+  background: var(--primary-color);
+  /* text */
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.btn:hover {
+  /* Lam mo nen */
+  opacity: 0.9;
+}
+
+.section-heading {
+  color: var(--header-bg);
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.section-desc {
+  color: #575f66;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1.67;
+}
+
+.control {
+  display: flex;
+  column-gap: 18px;
+  align-items: center;
+}
+
+.control__btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #575f66;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.control__btn:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+
+.control__btn--next {
+  rotate: 180deg;
+}
+
+
+/* ========== header ========== */
+
+.header {
+  background: var(--header-bg);
+  min-width: 100vw;
+}
+
+.menu {
+  padding: 10px;
+  width: 1400px;
+  margin: 0 auto;
+  max-width: calc(100% - 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__list {
+  display: flex;
+}
+
+.header__action--login,
+.navbar__link {
+  padding: 8px 21px;
+  color: #c9d2da;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: #fff;
+  /* font-weight: 400; -> ko dung vi no se day cac ptu khi weight thay doi */
+  text-shadow: 1px 0 0 currentColor;
+  line-height: 1.75;
+}
+
+.header__action--signup {
+  min-width: 104px;
+  line-height: 44px;
+  font-size: 1.6rem;
+}
+
+.header__action--login {
+  margin-right: 7px;
+}
+
+
+/* ========== main ========== */
+
+/* heading */
+.lookup_heading{
+  text-align: center;
+  margin: 60px;
+  color: var(--header-bg);
+  font-size: 45px;
+  font-weight: 700;
+}
+
+/* search */
+.search_heading{
+  color: var(--header-bg);
+  width: 50px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+.search,
+.search-top,
+.search-bottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+}
+.search-top,
+.search-bottom{
+  margin: 20px;
+}
+
+.input {
+  padding: 10px;
+  width: 400px;
+  height: 50px;
+  border-radius: 10px;
+  border-color: var(--header-bg);
+}
+
+/* table */
+table {
+  margin-top: 60px;
+  width: 100%;
+}
+
+th {
+  background-color: #a0d1ff;
+  color: #000;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+th,
+td {
+  padding: 20px;
+  border: 1px solid var(--header-bg);
+  text-align: center;
+}
+
+tr:hover {
+  background-color: rgb(193, 231, 234);
+}

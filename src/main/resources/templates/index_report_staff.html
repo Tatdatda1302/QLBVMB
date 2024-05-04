@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/asses/favicon/Logo_Img.svg"
+      type="VietHub Airline"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"/>
+
+    <!-- font icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- reset css -->
+    <link rel="stylesheet" href="/asses/css/reset.css"/>
+    <!-- style css -->
+    <link rel="stylesheet" href="/asses/css/style_report_staff.css" />
+    
+    <title>VietHub Airline</title>
+  </head>
+  <body>
+
+      <!-- header -->
+      <header class="header">
+          <div class="menu">
+            <!-- Logo -->
+            <img
+                src="/asses/favicon/Logo_Gr.svg"
+                alt="Shine smile"
+                class="logo header__logo"
+            />
+            <!-- Navbar  -->
+            <nav class="navbar">
+              <ul class="navbar__list" id="navbar__list--pc">
+                <li class="navbar__item">
+                  <a href="/templates/index_reservation_staff.html" class="navbar__link">Reservation</a>
+                </li>
+                <li class="navbar__item">
+                  <a href="/templates/index_search_staff.html" class="navbar__link">Flight</a>
+                </li>
+                <li class="navbar__item">
+                  <a href="/templates/index_adding_staff.html" class="navbar__link">Add Flight</a>
+                </li>
+                <li class="navbar__item">
+                  <a href="/templates/index_report_staff.html" class="navbar__link navbar__link--active">Report</a>
+                </li>
+                <li class="navbar__item">
+                  <a href="/templates/index_regulations_staff.html" class="navbar__link">Regulations</a>
+                </li>
+              </ul>
+            </nav>
+            <!-- cta action -->
+            <div class="header__action">
+              <a href="/templates/index_signin.html" class="header__action--login">Log in</a>
+              <a href="/templates/index_signup.html" class="btn header__action--signup">Sign up</a>
+            </div>
+          </div>
+      </header>
+
+      <!-- main -->
+      <main>
+        <section class="report">
+          <div class="container">
+            
+            <!-- heading -->
+            <h1 class="report_heading">REPORT</h1>
+            
+            <div class="container_report">
+              <!-- search -->
+              <div class="container_left">
+                <div class="report_types">
+                  <button id="btn_yearlyReport" class="btn_bar">Yearly report</button>
+                  <button id="btn_monthlyReport" class="btn_bar">Monthly report</button>
+                </div>
+
+                <!-- style="search_yearly" -->
+                <div id="search_yearly" class="search_yearly">
+                  <input class="input" type="number" placeholder="Select year" />
+                </div>
+
+                <!-- style="search_monthly" -->
+                <div id="search_monthly" class="search_monthly" style="display: none;">
+                  <input class="input" type="number" placeholder="Select year" />
+                  <input class="input" type="number" placeholder="Select month" />
+                </div>
+            
+                <div class="preparation">
+                  <button id="btnSearch" class="btn_bar">Report preparation</button>
+                </div>
+              </div>
+    
+              <!-- table -->
+              <div class="container_right">
+                <!-- table for yearly report -->
+                <table id="table_yearly" class="table">
+    
+                  <!-- title -->
+                  <div class="table_title">
+                    <tr>
+                      <th>Month</th>
+                      <th>Number of flights</th>
+                      <th>Total Revenue</th>
+                      <th>Rate</th>
+                    </tr>
+                  </div>
+                  
+                  <!-- result 1 -->
+                  <div class="table_row">
+                    <tr>
+                      <td>11</td>
+                      <td>2</td>
+                      <td>160000</td>
+                      <td>30,146514618</td>
+                    </tr>
+                  </div>
+      
+                  <!-- result 2 -->
+                  <div class="table_row">
+                    <tr>
+                      <td>12</td>
+                      <td>3</td>
+                      <td>190000</td>
+                      <td>30,146514618</td>
+                    </tr>
+                  </div>
+                </table>
+
+                <!-- table for monthly report -->
+                <table id="table_monthly" class="table" style="display: none;">
+                  
+                  <!-- Title for yearly report -->
+                  <div class="table_title">
+                    <tr>
+                      <th>Flight Code</th>
+                      <th>1st class ticket</th>
+                      <th>2nd class ticket</th>
+                      <th>Total Revenue</th>
+                      <th>Rate</th>
+                    </tr>
+                  </div>
+                  
+                  <!-- result 1 -->
+                  <div class="table_row">
+                    <tr>
+                      <td>MH37</td>
+                      <td>20</td>
+                      <td>50</td>
+                      <td>1200000</td>
+                      <td>25.4</td>
+                    </tr>
+                  </div>
+
+                  <!-- result 2 -->
+                  <div class="table_row">
+                    <tr>
+                      <td>MH37</td>
+                      <td>20</td>
+                      <td>50</td>
+                      <td>1200000</td>
+                      <td>25.4</td>
+                    </tr>
+                  </div>
+
+                </table>
+
+              </div>
+            </div>
+
+            <div class="report_bottom">
+              <div class="report_total">
+                <p class="report_desc"> Tổng doanh thu:</p>
+                <p class="report_price">545000</p>
+              </div>
+              <button id="btnSearch" class="btn_bar">Chuyển sang file Excel</button>
+            </div>
+  
+          </div>
+        </section>
+      </main>
+
+    <script src='/asses/js/staff_report.js'></script>
+  </body>
+</html>
+    

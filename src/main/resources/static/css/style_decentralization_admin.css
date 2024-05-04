@@ -1,0 +1,376 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Sora", sans-serif;
+}
+
+:root {
+  --font-heading: "Sora";
+  --font-content: "Open Sans";
+  --primary-color: #21A9DE;
+  --header-bg: #00256C;
+  --partners-bg: #F6FBFF;
+}
+
+
+/* ========== common ========== */
+
+
+/* se co nhung the khong an theo thuoc tinh chung */
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.container {
+  width: 1170px;
+  margin: 0 auto;
+  max-width: calc(100% - 48px);
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  /* box chua */
+  display: inline-block;
+  min-width: 205px;
+  line-height: 60px;
+  border-radius: 30px;
+  background: var(--primary-color);
+  /* text */
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.btn:hover {
+  /* Lam mo nen */
+  opacity: 0.9;
+}
+
+.section-heading {
+  color: var(--header-bg);
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.section-desc {
+  color: #575f66;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1.67;
+}
+
+.control {
+  display: flex;
+  column-gap: 18px;
+  align-items: center;
+}
+
+.control__btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #575f66;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.control__btn:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #fff;
+}
+
+.control__btn--next {
+  rotate: 180deg;
+}
+
+
+/* ========== header ========== */
+
+.header {
+  background: var(--header-bg);
+  min-width: 100vw;
+}
+
+.menu {
+  padding: 10px;
+  width: 1400px;
+  margin: 0 auto;
+  max-width: calc(100% - 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__list {
+  display: flex;
+}
+
+.header__action--login,
+.navbar__link {
+  padding: 8px 21px;
+  color: #c9d2da;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: #fff;
+  /* font-weight: 400; -> ko dung vi no se day cac ptu khi weight thay doi */
+  text-shadow: 1px 0 0 currentColor;
+  line-height: 1.75;
+}
+
+.header__action--signup {
+  min-width: 104px;
+  line-height: 44px;
+  font-size: 1.6rem;
+}
+
+.header__action--login {
+  margin-right: 7px;
+}
+
+
+/* ========== main ========== */
+
+/* ===== how  ===== */
+
+.book {
+  padding: 100px 0;
+  background: #f6fbff;
+}
+
+.book__desc {
+  padding-top: 18px;
+  width: 40%;
+}
+
+.book__list {
+  margin-top: 86px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.book-item {
+  padding: 40px;
+  border: 16px solid #eaf6ff;
+  border-radius: 4px;
+  background: #fff;
+  /* hieu ung */
+  transition: 0.25s;
+}
+
+.book-item__active {
+  border-color: var(--primary-color);
+  transition: 0.25s;
+  transform: translateY(-16px);
+}
+
+.book-tiem__icon {
+  width: 72px;
+  height: 72px;
+}
+
+.book-item__heading {
+  margin-top: 18px;
+  color: #10375c;
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1.39;
+}
+
+.book-item__desc {
+  min-height: 120px;
+  margin-top: 28px;
+  color: #575f66;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.book-item__link {
+  margin: 18px 0 auto;
+  display: inline-block;
+  color: #2e80ce;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+
+/* bat dau chinh sua tu day*/
+
+
+/* Dinh dang cho thanh tim kiem*/
+
+.btn_bar {
+  background-color: #00256C;
+  width: calc(100% / 6 - 50px);
+  height: 50px;
+  color: #FFF;
+  border-radius: 10px;
+  border-color: #00256C;
+}
+
+.btn_bar:hover {
+  /* Lam mo nen */
+  opacity: 0.9;
+}
+
+.btn_bar:active {
+  /* Lam mo nen */
+  background-color: #f7f7f7;
+  color: #00256C;
+}
+
+.input {
+  margin: 10px;
+  padding: 10px;
+  width: 400px;
+  height: 50px;
+  border-radius: 10px;
+  color: #00256C;
+  border-color: #00256C;
+}
+
+.container_bar {
+  margin: 20px 0 auto;
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.search{
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  padding: 30px;
+  color: #00256C;
+  font-size: 45px;
+  font-weight: bold;
+}
+.decentralization_heading{
+  margin-top: 60px;
+  text-align: center;
+}
+
+/* dinh dang table va cac thanh phan ben trong*/
+
+table {
+  margin-left: 30px;
+  margin-top: 40px;
+  width: 96%;
+}
+
+th {
+  background-color: #a0d1ff;
+  font-size: 18px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #00256C;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th,
+td {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+tr:hover {
+  background-color: rgb(193, 231, 234);
+}
+
+
+/* dinh dang cho thanh phan dialog va bieu mau ben trong*/
+
+dialog {
+  border-radius: 10px;
+  border-color: transparent;
+}
+
+dialog .wrapper {
+  padding: 16px;
+}
+
+.field_add_station {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+.label_station {
+  padding: 0 20px;
+}
+
+.input_station {
+  outline: none;
+  font-size: 14px;
+  color: #333;
+  border-radius: 5px;
+  border: 1px solid #00256C;
+  padding: 0 15px;
+  height: 42px;
+  margin: 8px 0;
+}
+
+.btn_station {
+  background-color: #00256C;
+  color: #fff;
+  margin: 10px;
+  height: 40px;
+  border-radius: 50px;
+}
+
+.btn_station:hover {
+  opacity: 0.9;
+  cursor: pointer;
+  background-color: var(--header-bg)
+}
+
+.btn_station:active {
+  background-color: #fff;
+  color: #00256C;
+}
+
+.table_title {
+  text-decoration-thickness: 3px;
+}

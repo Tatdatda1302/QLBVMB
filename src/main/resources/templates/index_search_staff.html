@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/asses/favicon/Logo_Img.svg"
+      type="VietHub Airline"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"/>
+
+    <!-- font icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- reset css -->
+    <link rel="stylesheet" href="/asses/css/reset.css"/>
+    <!-- style css -->
+    <link rel="stylesheet" href="/asses/css/style_search_staff.css" />
+    
+    <title>VietHub Airline</title>
+  </head>
+  <body>
+
+    <!-- header -->
+    <header class="header">
+        <div class="menu">
+          <!-- Logo -->
+          <img
+              src="/asses/favicon/Logo_Gr.svg"
+              alt="Shine smile"
+              class="logo header__logo"
+          />
+          <!-- Navbar  -->
+          <nav class="navbar">
+            <ul class="navbar__list" id="navbar__list--pc">
+              <li class="navbar__item">
+                <a href="/templates/index_reservation_staff.html" class="navbar__link">Reservation</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/templates/index_search_staff.html" class="navbar__link navbar__link--active">Flight</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/templates/index_adding_staff.html" class="navbar__link">Add Flight</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/templates/index_report_staff.html" class="navbar__link">Report</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/templates/index_regulations_staff.html" class="navbar__link">Regulations</a>
+              </li>
+            </ul>
+          </nav>
+          <!-- cta action -->
+          <div class="header__action">
+            <a href="/templates/index_signin.html" class="header__action--login">Log in</a>
+            <a href="/templates/index_signup.html" class="btn header__action--signup">Sign up</a>
+          </div>
+        </div>
+    </header>
+
+    <!-- main -->
+        
+      <main>
+          <section class="lookup">
+            <div class="container">
+              
+              <!-- heading -->
+              <h1 class="lookup_heading">Flight Lookup</h1>
+              
+              <!-- search -->
+              <div class="container_lookup">
+    
+                <div class="search-top">
+                  <div class="search">
+                    <h2 class="search_heading">Flight</h2>
+                    <input class="input" type="text" placeholder="Search plane ID ..." />
+                  </div>
+  
+                  <div class="search">
+                    <h2 class="search_heading">Date</h2>
+                    <input class="input" type="text" placeholder="Search date of flight ..." />
+                  </div>
+                </div>
+
+                <div class="search-bottom">
+                  <div class="search">
+                    <h2 class="search_heading">From</h2>
+                    <input class="input" type="text" placeholder="Search for where to go ..." />
+                  </div>
+  
+                  <div class="search">
+                    <h2 class="search_heading">To</h2>
+                    <input class="input" type="text" placeholder="Search for where to arrive ..." />
+                  </div>
+                </div>
+    
+                <!-- <button id="btnSearch" class="btn_bar">Search</button> -->
+              </div>
+    
+              <!-- table -->
+              <table id="table_planes" class="table">
+
+                <!-- title -->
+                <div class="table_title">
+                  <tr>
+                    <th>STT</th>
+                    <th>Plane ID</th>
+                    <th>Plane From</th>
+                    <th>Plane To</th>
+                    <th>Depart</th>
+                    <th>flight time</th>
+                    <th>Seats available</th>
+                    <th>Seats booked</th>
+                  </tr>
+                </div>
+                
+                <!-- result 1 -->
+                <div class="table_row">
+                  <tr>
+                    <td>1</td>
+                    <td>HNPQ001</td>
+                    <td>HAN</td>
+                    <td>HCM</td>
+                    <td>31/12/2024 3:00</td>
+                    <td>02:00:00</td>
+                    <td>5</td>
+                    <td>95</td>
+                  </tr>
+                </div>
+    
+                <!-- result 2 -->
+                <div class="table_row">
+                  <tr>
+                    <td>2</td>
+                    <td>HNPQ002</td>
+                    <td>HAN</td>
+                    <td>HCM</td>
+                    <td>31/12/2024 3:00</td>
+                    <td>02:00:00</td>
+                    <td>5</td>
+                    <td>95</td>
+                  </tr>
+                </div>
+    
+              </table>
+    
+            </div>
+          </section>
+      </main>
+    
+      </body>
+    </html>
+    

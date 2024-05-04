@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/asses/favicon/Logo_Img.svg"
+      type="VietHub Airline"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"/>
+
+    <!-- font icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- reset css -->
+    <link rel="stylesheet" href="/asses/css/reset.css"/>
+    <!-- style css -->
+    <link rel="stylesheet" href="/asses/css/style_reservation_staff.css" />
+    
+    <title>VietHub Airline</title>
+  </head>
+  <body>
+
+    <!-- header -->
+    <header class="header">
+        <div class="menu">
+          <!-- Logo -->
+          <img
+              src="/asses/favicon/Logo_Gr.svg"
+              alt="Shine smile"
+              class="logo header__logo"
+          />
+          <!-- Navbar  -->
+          <nav class="navbar">
+            <ul class="navbar__list" id="navbar__list--pc">
+              <li class="navbar__item">
+                <a href="/templates/index_reservation_staff.html" class="navbar__link navbar__link--active">Reservation</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/templates/index_search_staff.html" class="navbar__link">Flight</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/templates/index_adding_staff.html" class="navbar__link">Add Flight</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/templates/index_report_staff.html" class="navbar__link">Report</a>
+              </li>
+              <li class="navbar__item">
+                <a href="/templates/index_regulations_staff.html" class="navbar__link">Regulations</a>
+              </li>
+            </ul>
+          </nav>
+          <!-- cta action -->
+          <div class="header__action">
+            <a href="/templates/index_signin.html" class="header__action--login">Log in</a>
+            <a href="/templates/index_signup.html" class="btn header__action--signup">Sign up</a>
+          </div>
+        </div>
+    </header>
+
+    <!-- main -->
+    <main>
+
+      <!-- hero -->
+      
+      <h1 class="heading">LIST OF BOOKED TICKETS</h1>
+
+      <div class="container_bar">
+
+        <div class="container_bar_search_input">
+          <svg class="container_bar_img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="35" height="35" fill="#00256C" ><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+          <input class="input" type="text" placeholder="Search Passanger ID ..." />
+        </div>
+
+        <button id="btnSearchClass" class="btn_bar_remove">Search</button>
+
+        <button id="btnRemoveClass" class="btn_bar_remove">Remove</button>
+
+        <dialog id='dialog_remove_class'>
+          <div class ="wrapper">
+            <form>
+              <div class= "field_add_station"> 
+                
+                <label class="label_station">PNR:</label>
+                <input required id='PNR_dialog' class="input_station" type="text" placeholder="Enter Plane ID">
+
+                <label class="label_station">Passanger ID:</label>
+                <input required id='passengerid_dialog' class="input_station" type="text" placeholder="Enter Passanger ID" >
+
+                <label class="label_station">Seat ID:</label>
+                <input required id='note_dialog' class="input_station" type="text" placeholder="Enter Seat ID">
+
+                <button id="confirmRemoveClass" class="btn_station">Remove</button>
+                <button id="cancelRemoveClass" class="btn_station">Cancel</button>
+            </div>
+          </form>
+          </div>
+        </dialog>
+
+      </div>
+
+        
+      <!-- Tao bang-->
+        <table id="table_class" class="table">
+          <div class="table_title">
+            <tr>
+              <th>PNR</th>
+              <th>Ticket ID</th>
+              <th>Class ID</th>
+              <th>Seat ID</th>
+              <th>Passanger ID</th>
+              <th>Passanger Type</th>
+              <th>Price Ticket</th>
+             <th>Date of Reservation</th>
+             <th>Ticket Issue Date</th>
+            </tr>
+          </div>
+          <div class="table_row">
+            <tr>
+              <td>VN01</td>
+              <td>VE01</td>
+              <td>2</td>
+              <td>VIP01</td>
+              <td>987346254678</td>
+              <td>Adult</td>
+              <td>1.100.000VND</td>
+              <td>10-5-2024</td>
+              <td>20-5-2024</td>
+            </tr>
+          </div>
+
+          <div class="table_row">
+            <tr>
+              <td>VN02</td>
+              <td>VE02</td>
+              <td>1</td>
+              <td>A01</td>
+              <td>989876254678</td>
+              <td>Adult</td>
+              <td>300.000VND</td>
+              <td>13-5-2024</td>
+              <td>25-5-2024</td>
+            </tr>
+          </div>
+
+      </table>
+      
+         
+      </section>
+
+
+      
+<script src='/asses/js/reservation_staff.js'></script>
+</body>
+</html>
+    
